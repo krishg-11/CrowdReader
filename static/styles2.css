@@ -1,0 +1,102 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+  background: url(pic1.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+h1 {
+  color: white;
+  font-family: lato thin;
+  font-size: 300%;
+  text-align: center;
+}
+
+h2 {
+    color: black;
+    font-family: verdana;
+    font-size: 300%;
+    text-align: center;
+}
+
+h3 {
+    color: white;
+    font-family: verdana;
+    font-size: 100%;
+    margin: 200 px;
+    padding: 200 px;
+    text-align: center;
+}
+p  {
+  color: red;
+  font-family: comic;
+  font-size: 160%;
+}
+
+a {
+    font-family: trebuchet;
+}
+
+
+.tehc-r1 {
+  font-family: Lato, sans-serif;
+  font-size: 10em;
+  line-height: 1em;
+  font-weight: 100;
+}
+
+.tehc-r2 {
+  font-family: Lato, sans-serif;
+  font-size: 4em;
+  line-height: 1em;
+  font-weight: 200;
+}
+
+.tablink {
+  background-color: #444;
+  float: left;
+  border: 1px;
+  outline: none;
+  cursor: pointer;
+  font-size: 40px;
+  width: 25%;
+  text-align: center;
+}
+
+.tablink:hover {
+  background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: white;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+
+.styled {
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgba(255, 131,5, 1);
+    background-image: linear-gradient(to top left,
+                                      rgba(0, 0, 0, .2),
+                                      rgba(0, 0, 0, .2) 30%,
+                                      rgba(0, 0, 0, 0));
+    box-shadow: inset 2px 2px 3px rgba(255, 255, 255, .6),
+                inset -2px -2px 3px rgba(0, 0, 0, .6);
+}
+
+.styled:hover {
+    background-color: rgba(255,141,1`5, 1);
+}

@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>WEBSITE TAB</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles2.css') }}">
+        <link href='https://fonts.googleapis.com/css?family=Lato:100italic' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <script>
+            function openPage(pageName, elmnt, color) {
+                var i, tabcontent, tablinks;
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablink");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].style.backgroundColor = "";
+            }
+            document.getElementById(pageName).style.display = "block";
+            elmnt.style.backgroundColor = color;
+        }
+            document.getElementById("defaultOpen").click();
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <div class="tablink">
+            <a href="index.html" style="color:lightblue; text-decoration:none">HOME</a>
+        </div>
+
+        <div class="tablink">
+            <a href="description.html" style="color:lightblue; text-decoration:none">DESCRIPTION</a>
+        </div>
+
+        <div class="tablink">
+            <a href="application.html" style="color:lightblue; text-decoration:none">APPLICATION</a>
+        </div>
+
+        <div class="tablink">
+            <a href="contact.html" style="color:lightblue; text-decoration:none">ABOUT US</a>
+        </div>
+        <br><br><br>
+        <h1 class="tehc-r1">CROWD READER</h1>
+        <h3 class="tehc-r2"><b><i>Instantly analyze crowd reactions</i></b></h1>
+        <br><br>
+
+    </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+	<title>HTML5 Bar Graph Example</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles2.css') }}">
+  <link href='https://fonts.googleapis.com/css?family=Lato:100italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+	<script>
+      function openPage(pageName, elmnt, color) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+              tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablink");
+      for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].style.backgroundColor = "";
+      }
+      document.getElementById(pageName).style.display = "block";
+      elmnt.style.backgroundColor = color;
+  }
+      document.getElementById("defaultOpen").click();
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <div class="tablink">
+      <a href="index.html" style="color:lightblue; text-decoration:none">HOME</a>
+  </div>
+
+  <div class="tablink">
+      <a href="description.html" style="color:lightblue; text-decoration:none">DESCRIPTION</a>
+  </div>
+
+  <div class="tablink">
+      <a href="application.html" style="color:lightblue; text-decoration:none">APPLICATION</a>
+  </div>
+
+  <div class="tablink">
+      <a href="contact.html" style="color:lightblue; text-decoration:none">ABOUT US</a>
+  </div>
+	<h1>SENTIMENT ANALYSIS</h1>
+	<center><div id="graphDiv1"></div></center>
+	<br />
+	<script src = "{{ url_for('static', filename = 'bargraph.js') }}"></script>
+	<script>(function () {
+
+		function createCanvas(divName) {
+
+			var div = document.getElementById(divName);
+			var canvas = document.createElement('canvas');
+			div.appendChild(canvas);
+			if (typeof G_vmlCanvasManager != 'undefined') {
+				canvas = G_vmlCanvasManager.initElement(canvas);
+			}
+			var ctx = canvas.getContext("2d");
+			return ctx;
+		}
+
+		var ctx = createCanvas("graphDiv1");
+
+		var graph = new BarGraph(ctx);
+		graph.maxValue = {{mx}};
+		graph.height = 500;
+		graph.width = 800;
+		graph.margin = 5;
+		graph.colors = ["#fff633", "#ff330f", "#0f0f9b", "#ffa600", "#1ec004", "#9c9c9c"];
+		graph.xAxisLabelArr = ['HAPPY', 'ANGRY', 'SAD', 'SURPRISED','DISGUSTED', 'CONFUSED'];
+		setInterval(function () {
+			graph.update([{{test}}[0], {{test}}[1], {{test}}[2],{{test}}[3],{{test}}[4],{{test}}[5]]);
+		}, 100);
+
+
+	}());</script>
+</body>
+</html>

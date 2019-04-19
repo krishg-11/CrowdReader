@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>ABOUT US</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles2.css') }}">
+    </head>
+    <body background="desktoppic4.jpg">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <div class="tablink">
+            <a href="index.html" style="color:lightblue; text-decoration:none">HOME</a>
+        </div>
+
+        <div class="tablink">
+            <a href="description.html" style="color:lightblue; text-decoration:none">DESCRIPTION</a>
+        </div>
+
+        <div class="tablink">
+            <a href="application.html" style="color:lightblue; text-decoration:none">APPLICATION</a>
+        </div>
+
+        <div class="tablink">
+            <a href="contact.html" style="color:lightblue; text-decoration:none">ABOUT US</a>
+        </div>
+        <br><br><br><br>
+
+        <center><video id="v" width="800" height="600" style="text-align:center;"></video><center><br>
+	    <input id="b" class="styled" type="button" disabled="false" value="Take Picture"></input>
+        <input id="n" class="styled" type="button" disabled="false" value="View Analysis"></input>
+	    <canvas id="c" style="display:none;" width="800" height="600"></canvas>
+        <script>
+            navigator.getUserMedia({video: true}, function(stream) {
+		    var video = document.getElementById("v");
+		    var canvas = document.getElementById("c");
+		    var button = document.getElementById("b");
+            var button1 = document.getElementById("n");
+            video.srcObject = stream;
+            video.play();
+		    button.disabled = false;
+            button1.disabled = false;
+		    button.onclick = function() {
+			canvas.getContext("2d").drawImage(video, 0, 0, 800, 600, 0, 0, 800, 600);
+			var img = canvas.toDataURL("image/png");
+            var image = canvas.toDataURL("image/png").replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
+            location.href=image;
+            };
+            button1.onclick = function() {
+                location.href="image.html";
+            };
+	}, function(err) { alert("there was an error " + err)});
+        </script>
+
+
+
+
+
+    </body>
+</html>
